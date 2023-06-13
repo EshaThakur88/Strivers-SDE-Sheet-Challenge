@@ -33,6 +33,11 @@ vector<int> nextPermutation(vector<int> &permutation, int n)
     return nextPer;
 }
 int main(){
-    
+    vector<int> permutation={2,3,1,7,5,0};
+    vector<int> result=nextPermutation(permutation, 6);
+
+    for(auto &i: result){
+        cout<<i<<" ";
+    }
     return 0;
 }
