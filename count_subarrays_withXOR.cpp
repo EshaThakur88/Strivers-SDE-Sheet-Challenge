@@ -32,4 +32,5 @@ int main(){
     vector<int> arr={5,3,8,3,10};
     int res= subarraysXor(arr, 8);
     cout<<res<<endl;
+    return 0;
 }
