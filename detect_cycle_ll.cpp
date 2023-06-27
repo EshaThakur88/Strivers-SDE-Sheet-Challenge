@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+using namespace std;
 /****************************************************************
 
     Following is the class structure of the Node class:
