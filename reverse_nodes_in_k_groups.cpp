@@ -1,8 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
 
-/****************************************************************
-
-    Following is the class structure of the Node class:
 
         class Node
         {
@@ -15,8 +13,6 @@
 		        this->next = NULL;
 	        }
         };
-
-*****************************************************************/
 
 vector<Node*> reverse(Node* head,int b){
 
