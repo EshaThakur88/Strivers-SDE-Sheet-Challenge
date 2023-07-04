@@ -1,4 +1,5 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
+ 
 long getTrappedWater(long *arr, int n){
     long lmax[n];
     lmax[0]=arr[0];
