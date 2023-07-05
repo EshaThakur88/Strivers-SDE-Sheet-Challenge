@@ -32,7 +32,7 @@ vector<int> zigZagTraversal(BinaryTreeNode<int> *root)
         for(int i=0; i<sz; i++){
             BinaryTreeNode<int>* node=q.front();
             q.pop();
-
+            //checking the flag and then adding values accordingly
             if(flag) temp[i]=node->data;
             else temp[sz-1-i]=node->data;
 
