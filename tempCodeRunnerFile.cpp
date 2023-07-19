@@ -1,67 +1,50 @@
 #include <iostream>
-#include <vector>
-#include <unordered_set>
+#include <string>
 using namespace std;
 
-const int MOD = 1000000007;
-
-vector<int> countUniqueSubsequences(const string &text)
+string constructString(int countA, int countB)
 {
-    int N = text.length();
-
-    // Create a 2-dimensional vector dp[][] to store the number of unique subsequences
-    vector<vector<int> > dp(N + 1, vector<int>(N + 1, 0));
-
-    // Create a vector to store the last occurrence index of each character
-    vector<int> lastOccurrence(256, -1);
-
-    // Base case: dp[i][0] = 1 (empty subsequence)
-    for (int i = 0; i <= N; i++)
+    string result = "";
+    if ((countA - countB) == 1)
     {
-        dp[i][0] = 1;
-    }
-
-    // Calculate the number of unique subsequences for each length
-    for (int i = 1; i <= N; i++)
-    {
-        for (int j = 1; j <= i; j++)
+        while (countB)
         {
-            dp[i][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % MOD;
-
-            // Check if the character has occurred before
-            if (lastOccurrence[text[i - 1]] != -1)
+            result += "A";
+            countA--;
+            result += "B";
+            countB--;
+        }
+    }
+    else
+    {
+        while (countA > 0 || countB > 0)
+        {
+            if (countA - 1 > countB)
             {
-                int prevIndex = lastOccurrence[text[i - 1]];
-                dp[i][j] = (dp[i][j] - dp[prevIndex - 1][j - 1] + MOD) % MOD;
+                result += "A";
+                countA--;
+            }
+            else if (countB > 0)
+            {
+                result += "B";
+                countB--;
+            }
+            if (countA > countB)
+            {
+                result += "A";
+                countA--;
             }
         }
-
-        // Update the last occurrence index of the character
-        lastOccurrence[text[i - 1]] = i;
     }
-
-    // Calculate the count of unique subsequences for each length
-    vector<int> counts(N + 1, 0);
-    for (int i = 1; i <= N; i++)
-    {
-        counts[i] = dp[N][i];
-    }
-
-    return counts;
+    return result;
 }
 
 int main()
 {
-    string text = "hello";
-    cout << "Input String: " << text << endl;
-    int N = text.length();
-
-    cout << "Number of unique subsequences of length 0 is 1" << endl;
-    vector<int> uniqueSubsequenceCounts = countUniqueSubsequences(text);
-    for (int i = 1; i <= N; i++)
-    {
-        cout << "Number of unique subsequences of length " << i << " is " << uniqueSubsequenceCounts[i] << endl;
-    }
-
+    int A = 6;
+    int B = 3;
+    cout << "A=" << A << " and B=" << B << endl;
+    string result = constructString(A, B);
+    cout << "Constructed string: " << result << endl;
     return 0;
 }
