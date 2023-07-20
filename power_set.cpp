@@ -11,11 +11,7 @@ void powerSet(vector<int> v, vector<int> output, vector<vector<int>> &ans, int i
         return;
     }
 
-    // exclude
-
     powerSet(v, output, ans, index + 1);
-
-    // include
 
     output.push_back(v[index]);
 
@@ -25,9 +21,6 @@ void powerSet(vector<int> v, vector<int> output, vector<vector<int>> &ans, int i
 vector<vector<int>> pwset(vector<int> v)
 
 {
-
-    // Write your code here
-
     vector<vector<int>> ans;
 
     vector<int> output;
