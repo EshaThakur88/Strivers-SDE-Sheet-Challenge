@@ -1,4 +1,5 @@
 #include <bits/stdc++.h> 
+
 bool check(long long dis,vector<int> &arr,int c,int n){
 	int player=1;
 	long long pre_pos = arr[0];
