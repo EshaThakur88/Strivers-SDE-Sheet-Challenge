@@ -15,6 +15,7 @@ bool check(long long dis,vector<int> &arr,int c,int n){
 	}
 	return false; 
 }
+
 int chessTournament(vector<int> positions , int n ,  int c)
 {
 	sort(positions.begin(),positions.end());
